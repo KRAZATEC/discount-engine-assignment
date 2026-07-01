@@ -1,6 +1,0 @@
-rule_id,scope,applies_to,type,value,stackable,min_cart_value
-RULE-S1,platform,Amazon US,percentage,12,true,
-RULE-S2,brand,Samsung,percentage,10,true,
-RULE-S3,brand,LG,percentage,7,true,
-RULE-S4,cart,,percentage,15,false,5000
-RULE-S5,platform,Walmart,percentage,6,false,
