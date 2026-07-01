@@ -175,15 +175,19 @@ export default function App() {
     }
   }
 
-  function handleRuleConfirmed(newRule) {
-    const updatedRules = [...rules, newRule]
-    setRules(updatedRules)
-    setNlRuleCount((n) => n + 1)
-    // Re-run the engine on the current cart with the new rule included, per spec.
-    if (cartItems.length > 0) {
-      setResult(runEngine(cartItems, updatedRules))
-    }
+function handleRuleConfirmed(newRuleCore) {
+  const nextIndex = nlRuleCount + 1
+  const ruleId = `NL-${String(nextIndex).padStart(3, '0')}`
+  const newRule = { ...newRuleCore, ruleId }
+
+  const updatedRules = [...rules, newRule]
+  setRules(updatedRules)
+  setNlRuleCount(nextIndex)
+  // Re-run the engine on the current cart with the new rule included, per spec.
+  if (cartItems.length > 0) {
+    setResult(runEngine(cartItems, updatedRules))
   }
+}
 
   function handleCalculate() {
     setResult(runEngine(cartItems, rules))
