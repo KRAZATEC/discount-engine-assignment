@@ -6,7 +6,7 @@ item, stacks any stackable rules on top, applies a cart-wide offer if the
 subtotal clears a threshold, and shows a plain-language breakdown of what
 was applied — the way a real checkout page would.
 
-**Live deployment:** _add your deployed URL here before submitting_
+**Live deployment:** https://discount-engine-assignment-tau.vercel.app/
 
 ---
 
