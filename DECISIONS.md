@@ -104,3 +104,16 @@ document explicitly in the README that the Groq key must be set in the
 hosting platform's environment variables *before* the production build
 runs there — a key that only exists in a local `.env.local` will not make
 it into a Vercel/Netlify build unless it's also configured on the host.
+
+## NL rule IDs
+
+NL-parsed rules are assigned IDs of the form `NL-001`, `NL-002`, … in
+`App.jsx`, separate from the CSV `RULE-*` IDs. This avoids accidental
+collisions and keeps the source of each rule obvious in the UI.
+
+## Reasoning robustness
+
+`ruleToReasoning()` in `discountEngine.js` falls back to a generic
+`Offer` label if a future parser ever emits an unexpected `scope` or
+`type`. The goal is to never crash and always produce a meaningful
+customer-facing message, even under bad input.
