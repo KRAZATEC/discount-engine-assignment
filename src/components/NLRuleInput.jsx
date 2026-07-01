@@ -87,9 +87,9 @@ export default function NLRuleInput({ onRuleConfirmed, nextRuleNumber }) {
 
   function handleConfirm() {
     if (!parsedRule) return
-    const ruleId = `RULE-NL-${nextRuleNumber}`
-    const rule = toDiscountRule(parsedRule, ruleId)
-    onRuleConfirmed(rule)
+    // App.jsx will assign the ruleId and call toDiscountRule — ID generation
+    // is centralized in App.jsx to keep NL rule IDs in a single source of truth.
+    onRuleConfirmed(parsedRule)
     setInputText('')
     setParsedRule(null)
     setErrors([])
@@ -123,7 +123,7 @@ export default function NLRuleInput({ onRuleConfirmed, nextRuleNumber }) {
         <div style={S.errorBox}>
           <strong>Could not use this rule:</strong>
           <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>
-            {errors.map((e, i) => <li key={i}>{e}</li>)}
+            {errors.map((e, i) => >{e}</li>)}
           </ul>
         </div>
       )}
