@@ -1,0 +1,5 @@
+rule_id,scope,applies_to,type,value,stackable,min_cart_value
+RULE-B1,brand,Sony Electronics,flat,2000,false,
+RULE-B2,brand,Apple,percentage,18,false,
+RULE-B3,platform,Best Buy,percentage,8,true,
+RULE-B4,cart,,percentage,5,false,8000
