@@ -89,7 +89,10 @@ export function calculateDiscountAmount(price, rule) {
  * Builds the customer-facing reasoning string for an applied rule.
  */
 function ruleToReasoning(rule) {
-  const scopeLabel = rule.scope === 'brand' ? 'Brand' : 'Platform'
+  const isBrand = rule.scope === 'brand'
+  const isPlatform = rule.scope === 'platform'
+  const scopeLabel = isBrand ? 'Brand' : isPlatform ? 'Platform' : 'Offer'
+
   if (rule.type === 'percentage') {
     return `${scopeLabel} offer: ${rule.value}% off`
   }
